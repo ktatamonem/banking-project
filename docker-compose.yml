@@ -6,7 +6,7 @@ services:
         build:
             context: ./banking
         ports:
-            - "9000:80"
+            - "8080:80"
     frontend:
         image: banking-ui
         container_name: banking-ui

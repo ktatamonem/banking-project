@@ -25,13 +25,13 @@ nbTransactions : number;
     let balanceTopCard :any =  {
       bgcolor: 'danger',
       icon: 'bi bi-coin',
-      title: '$'+ this.balance,
+      title: '$'+ (this.balance ? this.balance :0),
       subtitle: 'Balance of all accounts'
   };  
   let transactionTopCard: any = {
     bgcolor: 'warning',
     icon: 'bi bi-basket3',
-    title: this.nbTransactions,
+    title: (this.nbTransactions? this.nbTransactions :0),
     subtitle: 'Transactions'
   }
   this.topcards.push(balanceTopCard); 

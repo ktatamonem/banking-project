@@ -1,7 +1,7 @@
 <div class="title">
     <h2 class="sectionTitle">Customer Details : {{customerData?.firstName}}  {{customerData?.lastName}}</h2>
 </div>
-<app-top-cards [balance]="customerData.balance? customerData.balance : 0" [nbTransactions]="customerData.transactions.length"></app-top-cards>
+<app-top-cards [balance]="customerData.balance" [nbTransactions]="customerData.transactions.length"></app-top-cards>
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">Transactions</h4>
