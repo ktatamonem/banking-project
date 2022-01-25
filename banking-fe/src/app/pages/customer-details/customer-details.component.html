@@ -1,0 +1,49 @@
+<div class="title">
+    <h2 class="sectionTitle">Customer Details : {{customerData?.firstName}}  {{customerData?.lastName}}</h2>
+</div>
+<app-top-cards [balance]="customerData?.balance" [nbTransactions]="customerData?.transactions?.length"></app-top-cards>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Transactions</h4>
+        <div class="table-responsive">
+            <table class="table table-hover align-middle text-nowrap table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-dark font-medium fs-4">#</th>
+                        <th class="text-dark font-medium fs-4">Amount</th>
+                        <th class="text-dark font-medium fs-4">Source Account Number</th>
+                        <th class="text-dark font-medium fs-4">Destination Account Number</th>
+                        <th class="text-dark font-medium fs-4">Date</th>
+                        <th class="text-dark font-medium fs-4">In cash</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor='let transaction of customerData?.transactions; index as i'>
+                        <td>
+                            {{ i + 1 }}
+                        </td>
+                        <td>
+                            {{transaction?.amount}}
+                        </td>
+                        <td>
+                            {{transaction?.sourceAccount?.accountNumber}}
+                        </td>
+                        <td>
+                            {{transaction?.destinationAccount?.accountNumber}}
+                        </td>
+                        <td>
+                            {{transaction?.creationDate | date: "dd/MM/yyyy HH:mm" }}
+                        </td>
+                        <td>
+                            <i class="bi bi-check btn-success"  *ngIf="transaction?.inCash" ></i>
+                            <i class="bi bi-x-circle btn-outline-danger"  *ngIf="!transaction?.inCash" ></i>
+                        </td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

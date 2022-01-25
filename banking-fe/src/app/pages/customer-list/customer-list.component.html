@@ -1,0 +1,57 @@
+<div class="title">
+    <h2 class="sectionTitle">Customers List</h2>
+  </div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle text-nowrap table-bordered">
+                <thead>
+                    <tr>
+                        <th class="text-dark font-medium fs-4">#</th>
+                        <th class="text-dark font-medium fs-4">Username</th>
+                        <th class="text-dark font-medium fs-4">First Name</th>
+                        <th class="text-dark font-medium fs-4">Last Name</th>
+                        <th class="text-dark font-medium fs-4">Email</th>
+                        <th class="text-dark font-medium fs-4">Mobile Number</th>
+                        <th class="text-dark font-medium fs-4">View</th>
+
+
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let customer of customerList; index as i'>
+                        <td>
+                            {{ i + 1 }}
+                        </td>
+                        <td>
+                            {{customer.username}}
+                        </td>
+                        <td>
+                            {{customer.firstName}}
+                        </td>
+                        <td>
+                            {{customer.lastName}}
+                        </td>
+                        <td>
+                            {{customer.email}}
+                        </td>
+                        <td>
+                            {{customer.mobileNumber}}
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-secondary" (click)="goTo(customer.id)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"></path>
+                  <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
+                </svg>
+                              </button>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

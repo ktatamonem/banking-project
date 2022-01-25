@@ -1,5 +1,6 @@
 package com.mk.backend.assignement.banking.controller.customer;
 
+import com.mk.backend.assignement.banking.entities.customer.Customer;
 import com.mk.backend.assignement.banking.exceptions.ObjectNotFoundException;
 import com.mk.backend.assignement.banking.navigation.Navigation;
 import com.mk.backend.assignement.banking.response.dto.CustomerDataResponse;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @RestController
 @RequestMapping(Navigation.CUSTOMER_API)
@@ -32,7 +34,7 @@ public class CustomerController {
 
     @GetMapping("/{id}")
     public ResponseEntity<CustomerDataResponse> retrieveCustomerData(@PathVariable @NotNull Long id ){
-
+        logger.info("start retrieve customer data for id:{}",id);
         try {
             CustomerDataResponse   response = customerService.retrieveCustomerDateByCustomerId(id);
             return ResponseEntity.ok(response);
@@ -45,6 +47,19 @@ public class CustomerController {
 
         }
 
+
+    }
+
+    @GetMapping("/list")
+    public ResponseEntity<List<Customer>> list(){
+        logger.info("starting listing all customers ");
+        try{
+            List<Customer> customerList  = customerService.retrieveAllCustomers() ;
+            return ResponseEntity.ok(customerList);
+        }catch (Exception ex){
+            logger.error("Exception  raised while retrieving all customers",ex);
+            return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
 
     }
 

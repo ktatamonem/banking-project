@@ -71,4 +71,9 @@ public class CustomerServiceImpl implements CustomerService {
             response.setTransactions(transactionList);
             return response;
     }
+
+    @Override
+    public List<Customer> retrieveAllCustomers() {
+        return customerRepository.findAll() ;
+    }
 }
