@@ -12,7 +12,7 @@ import { CustomerService } from '../../services/customer.service';
 export class CustomerDetailsComponent implements OnInit {
   subtitle: string;
 
-  customerData : CustomerDataResponse ; 
+  customerData : CustomerDataResponse = new CustomerDataResponse() ; 
   customerId : number  ;  
  
 

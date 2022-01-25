@@ -6,8 +6,8 @@ export class CustomerDataResponse{
     
     lastName : string ;  
 
-    balance : number  =0 ;  
+    balance : number  ;  
 
-    transactions:Transaction[];
+    transactions:Transaction[]
     
 }

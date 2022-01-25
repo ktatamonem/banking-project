@@ -9,10 +9,10 @@ export class TopCardsComponent implements OnInit {
 topcards:topcard[] = [] ;
 
 @Input()
-balance : number = 0;  
+balance : number ;  
 
 @Input()
-nbTransactions : number  =0;  
+nbTransactions : number;  
 
 
   constructor() { 
@@ -21,13 +21,11 @@ nbTransactions : number  =0;
   }
 
   ngOnInit(): void {
-    if(!this.balance){
-      this.balance = 0
-    }
+   
     let balanceTopCard :any =  {
       bgcolor: 'danger',
       icon: 'bi bi-coin',
-      title: '$'+this.balance,
+      title: '$'+ this.balance,
       subtitle: 'Balance of all accounts'
   };  
   let transactionTopCard: any = {
